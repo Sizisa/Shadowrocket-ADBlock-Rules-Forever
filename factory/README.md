@@ -32,6 +32,12 @@
 
 GFWList 不能无损转换为 SR 规则，所以这里是对 GFWList 的补充。
 
+## Fork 中的自定义规则
+
+仓库根目录的 `custom/proxy.list`、`custom/direct.list` 和 `custom/reject.list` 分别用于添加代理、直连和屏蔽规则。每行填写一条域名或 IP，格式与上述 `manual_*.txt` 相同；空行会忽略，`#` 开头的行会作为注释保留。
+
+运行 `build_confs.py` 时，这些规则会追加到对应的 `manual_*.txt` 规则，并按照配置模板原有的位置写入工厂生成的配置。不同类别出现相同域名时，优先级沿用各配置模板的规则顺序。工作流从上游下载的 `lazy.conf` 和 `lazy_group.conf` 不读取这些列表。
+
 
 ## 代码及自动生成的文件
 

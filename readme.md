@@ -131,7 +131,7 @@ INTP | Jack of all trades | I use Arch BTW
 
 **如何拥有自己的定制化规则？**
 
-点击右上角 Fork，取消勾选`Copy the release branch only`，在自己的仓库开启 Actions 功能即可。
+点击右上角 Fork，取消勾选`Copy the release branch only`，在自己的仓库开启 Actions 功能。将自定义域名或 IP 按每行一条，分别填写到 `custom/proxy.list`、`custom/direct.list` 或 `custom/reject.list`，推送到 `build` 分支后，Actions 会把它们加入工厂生成的配置。`lazy.conf` 和 `lazy_group.conf` 当前由工作流从上游下载，不读取这些列表。
 
 
 ## 捐助

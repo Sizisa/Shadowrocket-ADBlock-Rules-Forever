@@ -65,9 +65,18 @@ values['top500_direct'] = getRulesStringFromFile('resultant/top500_direct.list',
 
 values['ad'] = getRulesStringFromFile('resultant/ad.list', 'Reject')
 
-values['manual_direct'] = getRulesStringFromFile('manual_direct.txt', 'Direct')
-values['manual_proxy']  = getRulesStringFromFile('manual_proxy.txt', 'Proxy')
-values['manual_reject'] = getRulesStringFromFile('manual_reject.txt', 'Reject')
+values['manual_direct'] = (
+    getRulesStringFromFile('manual_direct.txt', 'Direct')
+    + getRulesStringFromFile('../custom/direct.list', 'Direct')
+)
+values['manual_proxy'] = (
+    getRulesStringFromFile('manual_proxy.txt', 'Proxy')
+    + getRulesStringFromFile('../custom/proxy.list', 'Proxy')
+)
+values['manual_reject'] = (
+    getRulesStringFromFile('manual_reject.txt', 'Reject')
+    + getRulesStringFromFile('../custom/reject.list', 'Reject')
+)
 
 values['gfwlist'] = getRulesStringFromFile('resultant/gfw.list', 'Proxy') \
                   + getRulesStringFromFile('manual_gfwlist.txt', 'Proxy')
